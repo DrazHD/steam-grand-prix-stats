@@ -77,8 +77,6 @@ ws.on('message', message => {
           'total deboosts': totalDeboosts
         }
       ];
-
-      console.log(score);
     });
   }
 
@@ -87,7 +85,7 @@ ws.on('message', message => {
       .sort((a, b) => a.distance - b.distance)
       .reverse();
 
-    console.log(`Day ${saleDay} - ${currentTime}`);
+    console.log(`👜 Day ${saleDay} - ${currentTime}`);
     console.table(allScoresSorted);
   }
 });

@@ -1,0 +1,22 @@
+{
+  "name": "steam-grand-prix",
+  "repository": {},
+  "version": "0.1.0",
+  "description": "Tracks Steam Summer Sale 2019 Grand Prix Statistics",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "watch": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Draz",
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.17.1",
+    "ws": "^7.0.1"
+  },
+  "devDependencies": {
+    "nodemon": "^1.19.1"
+  }
+}

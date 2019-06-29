@@ -49,7 +49,7 @@ ws.on('message', message => {
           ? 'Pig'
           : 'Unknown';
       const teamId = score.teamid;
-      const pct = score.score_pct;
+      const pct = Number((score.score_pct * 100).toFixed(2));
       const distance = Number(score.score_dist.toFixed(2));
       const totalBoosts = Number(score.total_boosts).toLocaleString('en');
       const totalDeboosts = Number(score.total_deboosts).toLocaleString('en');
@@ -71,10 +71,10 @@ ws.on('message', message => {
         {
           id: teamId,
           name: teamName,
-          pct: pct,
-          distance: distance,
-          'multiplier (%)': multiplier,
-          'speed (x)': multiplierBoosts,
+          'win %': pct,
+          'distance km': distance,
+          'multiplier %': multiplier,
+          'speed x': multiplierBoosts,
           'active boosts': activeBoosts,
           'active deboosts': activeDeboosts,
           'total boosts': totalBoosts,
@@ -86,7 +86,7 @@ ws.on('message', message => {
 
   if (allScores.length > 0) {
     const allScoresSorted = allScores
-      .sort((a, b) => a.distance - b.distance)
+      .sort((a, b) => a['distance km'] - b['distance km'])
       .reverse();
 
     console.log(`👜 Day ${saleDay} - ${currentTime}`);

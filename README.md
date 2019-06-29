@@ -7,6 +7,7 @@ An application to precisely monitor the 2019 Steam summer sale event statistics
 ### Prerequisites
 
 ```
+npm
 node.js
 ```
 
@@ -16,6 +17,10 @@ A step by step series of examples that tell you how to get a development env run
 
 - Download a .ZIP of the project or clone the repository
 - Navigate into the folder and open a terminal in it
+- install the dependencies
+```
+npm install
+```
 - Run the application by typing in the next command
 
 ```

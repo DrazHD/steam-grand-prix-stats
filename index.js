@@ -49,10 +49,13 @@ ws.on('message', message => {
           ? 'Pig'
           : 'Unknown';
       const teamId = score.teamid;
+      const pct = score.score_pct;
       const distance = Number(score.score_dist.toFixed(2));
       const totalBoosts = Number(score.total_boosts).toLocaleString('en');
       const totalDeboosts = Number(score.total_deboosts).toLocaleString('en');
-      const multiplier = Number(score.current_multiplier) * 100;
+      const multiplier = Number(
+        Number(score.current_multiplier * 10000).toFixed(2)
+      );
       const multiplierBoosts = Number(
         score.current_multiplier_boosts.toFixed(2)
       );
@@ -68,9 +71,10 @@ ws.on('message', message => {
         {
           id: teamId,
           name: teamName,
+          pct: pct,
           distance: distance,
-          multiplier: multiplier,
-          'multiplier boosts': multiplierBoosts,
+          'multiplier (%)': multiplier,
+          'speed (x)': multiplierBoosts,
           'active boosts': activeBoosts,
           'active deboosts': activeDeboosts,
           'total boosts': totalBoosts,

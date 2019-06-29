@@ -52,7 +52,7 @@ ws.on('message', message => {
       const distance = Number(score.score_dist.toFixed(2));
       const totalBoosts = Number(score.total_boosts).toLocaleString('en');
       const totalDeboosts = Number(score.total_deboosts).toLocaleString('en');
-      const multiplier = Number(score.current_multiplier);
+      const multiplier = Number(score.current_multiplier) * 100;
       const multiplierBoosts = Number(
         score.current_multiplier_boosts.toFixed(2)
       );

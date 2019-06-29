@@ -49,28 +49,36 @@ ws.on('message', message => {
           ? 'Pig'
           : 'Unknown';
       const teamId = score.teamid;
-      const distance = Number(score.score_dist.toFixed(0));
-      const totalBoosts = Number(score.boosts);
-      const totalDeboosts = Number(score.deboosts);
-      const multiplier = Number((score.current_multiplier * 100).toFixed(3));
+      const distance = Number(score.score_dist.toFixed(2));
+      const totalBoosts = Number(score.total_boosts).toLocaleString('en');
+      const totalDeboosts = Number(score.total_deboosts).toLocaleString('en');
+      const multiplier = Number(score.current_multiplier);
       const multiplierBoosts = Number(
-        score.current_multiplier_boosts.toFixed(0)
+        score.current_multiplier_boosts.toFixed(2)
       );
-      const activeBoosts = score.current_active_boosts;
-      const activeDeboosts = score.current_active_deboosts;
+      const activeBoosts = Number(score.current_active_boosts).toLocaleString(
+        'en'
+      );
+      const activeDeboosts = Number(
+        score.current_active_deboosts
+      ).toLocaleString('en');
 
       allScores = [
         ...allScores,
         {
-          teamId,
-          teamName,
-          distance,
-          multiplier,
-          multiplierBoosts,
-          activeBoosts,
-          activeDeboosts
+          id: teamId,
+          name: teamName,
+          distance: distance,
+          multiplier: multiplier,
+          'multiplier boosts': multiplierBoosts,
+          'active boosts': activeBoosts,
+          'active deboosts': activeDeboosts,
+          'total boosts': totalBoosts,
+          'total deboosts': totalDeboosts
         }
       ];
+
+      console.log(score);
     });
   }
 
